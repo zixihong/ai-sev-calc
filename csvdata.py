@@ -31,7 +31,7 @@ with open(data_file_name, mode='w', newline='') as data_csv_file:
         severity_csv_writer_precise.writerow(["Severity"])
 
         # Generate data and write it to the main data and severity data CSV files
-        for i in range(10000000):
+        for i in range(1000000):
             age = random.randint(0, 24)
             virionCount = random.randint(1, int(1e10))
             gender = random.randint(0, 1)
