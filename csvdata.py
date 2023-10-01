@@ -44,7 +44,7 @@ with open(data_file_name, mode='w', newline='') as data_csv_file:
 
             
 
-            severity = (1 - age / 24) * (virionCount) + abs((acceptableWeight - weight) / acceptableWeight) ** 2
+            severity = (1 - age / 24) * (virionCount) + abs((acceptableWeight - weight) / acceptableWeight)*((virionCount) ** 2)
             # Add 0.01% variance to the severity by multiplying it with a random factor
             variance_factor = 1 + random.uniform(-0.0001, 0.0001)
             severity_with_variance = severity * variance_factor
