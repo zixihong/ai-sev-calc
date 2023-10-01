@@ -20,5 +20,5 @@ else:
                 acceptableWeight = (fhighWeightList[age] + flowWeightList[age]) / 2
         
 
-severity = (1 - age / 24) * (virionCount) + abs((acceptableWeight - weight) / acceptableWeight) ** 2
+severity = (1 - age / 24) * (virionCount) + abs((acceptableWeight - weight) / acceptableWeight)*((virionCount) ** 2)
 print(severity)
