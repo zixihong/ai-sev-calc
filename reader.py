@@ -28,7 +28,7 @@ model = BayesianRidge()
 model.fit(X_train, y_train)
 
 
-# Define parameter values for prediction
+# Define parameter values for single test
 virioncount = 5185092289  # Replace with the actual virioncount value
 weight = 15.511799661471816         # Replace with the actual weight value
 age = 18            # Replace with the actual age value
@@ -43,25 +43,13 @@ predicted_severity = model.predict(new_data_point)
 # Print the predicted severity
 print("Predicted Severity:", predicted_severity[0])
 
-# Test the model on the test dataset
+# Test the model on the test dataset for precise data
 y_pred = model.predict(X_test)
 
-# Print evaluation metrics for the model's performance on the test data with variance
+# Print evaluation metrics for the model's performance on the test data with precise values
 mse = mean_squared_error(y_test, y_pred)
 r2 = r2_score(y_test, y_pred)
 
-print("Mean Squared Error (MSE) on Test Data with Variance:", mse)
-print("R-squared (R2) on Test Data with Variance:", r2)
-
-# Compare the model's predictions (with variance) to the precise data (without variance)
-precise_target = Y_data_precise['Severity'].values
-precise_predictions = model.predict(X_data)
-
-# Calculate evaluation metrics for the model's performance on the precise data
-precise_mse = mean_squared_error(precise_target, precise_predictions)
-precise_r2 = r2_score(precise_target, precise_predictions)
-
-print("Mean Squared Error (MSE) on Precise Data without Variance:", precise_mse)
-print("R-squared (R2) on Precise Data without Variance:", precise_r2)
-
+print("Mean Squared Error (MSE) on Test Data with Precise Values:", mse)
+print("R-squared (R2) on Test Data with Precise Values:", r2)
 
